@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour {
 
+	public int rank;
+	public string suit;
+	
+	void onAwake(){
+
+	}
 	// Use this for initialization
 	void Start () {
 
