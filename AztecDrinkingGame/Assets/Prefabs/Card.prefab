@@ -393,7 +393,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300010, guid: 1377f3d7e8ede7e4fa86e7ac26362f41, type: 3}
   m_Color: {r: 0.227451, g: 0.227451, b: 0.227451, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.37, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
@@ -528,7 +528,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300032, guid: 1377f3d7e8ede7e4fa86e7ac26362f41, type: 3}
   m_Color: {r: 0.2392157, g: 0.2392157, b: 0.2392157, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.75, y: 0.74}
   m_AdaptiveModeThreshold: 0.5

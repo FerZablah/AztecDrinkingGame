@@ -32,13 +32,29 @@ public class CardController : MonoBehaviour {
 	void Start () {
 		if(!isTestCard){
 			target =  GameObject.Find("TargetPosition").transform;
-			Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/CardsElements");
+			Sprite[] bigSprites = Resources.LoadAll<Sprite>("Sprites/CardsElements");
+			Sprite[] smallSprites = Resources.LoadAll<Sprite>("Sprites/SmallCardsElements");
+			//Change Middle Rank Sprite
 			if(rank==1){
 				print("As string: " + ("A"+suit[0]));
-				middleRankSprite.sprite = getSprite("A"+suit[0], sprites);
+				middleRankSprite.sprite = getSprite("A"+suit[0], bigSprites);
 			}
 			else{
-				middleRankSprite.sprite = getSprite(rank.ToString(), sprites);
+				middleRankSprite.sprite = getSprite(rank.ToString(), bigSprites);
+			}
+			//Change Upper and bottom  suit
+			upRankSprite.sprite = getSprite(rank.ToString(), smallSprites);
+			bottomRankSprite.sprite = getSprite(rank.ToString(), smallSprites);
+			//Change Upper and bottom suit
+			upSuitSprite.sprite = getSprite(suit[0].ToString(), smallSprites);
+			bottomSuitSprite.sprite = getSprite(suit[0].ToString(), smallSprites);
+			//Change Diamonds and hearts to red
+			if(suit[0]=='H'||suit[0]=='D'){
+				upRankSprite.color = Color.red;
+				middleRankSprite.color = Color.red;
+				bottomRankSprite.color = Color.red;
+				upSuitSprite.color = Color.red;
+				bottomSuitSprite.color = Color.red;
 			}
 		}
 	}
