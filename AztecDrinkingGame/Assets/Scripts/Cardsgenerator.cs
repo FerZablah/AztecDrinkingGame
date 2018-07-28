@@ -16,9 +16,9 @@ public class Cardsgenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		createCardsPool();
-		createCircle(20, 5.4f);
-		createCircle(10, 3.6f);
-		createCircle(8, 1.8f);
+		createCircle(20, 4.0f);
+		createCircle(10, 2.6f);
+		createCircle(8, 1.3f);
 		createCircle(1, 0.001f);
 	}
 
@@ -31,7 +31,6 @@ public class Cardsgenerator : MonoBehaviour {
 		for(int i=0;i<13;i++){
 			for(int j=0;j<4;j++){
 				Card myCard = new Card(){ rank = i+1, suit = suits[j] };
-				print(myCard.rank + " of " + myCard.suit);
 				cardPool.Add(myCard);
 			}
 		}
@@ -57,6 +56,7 @@ public class Cardsgenerator : MonoBehaviour {
 		 int rnd = (int)Random.Range(0, cardPool.Count - 1);
 		 cardScript.rank = cardPool[rnd].rank;
 		 cardScript.suit = cardPool[rnd].suit;
+		 cardScript.isTestCard = false;
 		 cardPool.RemoveAt(rnd);
  		}
 	}
