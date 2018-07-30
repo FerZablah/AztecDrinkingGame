@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CardController : MonoBehaviour {
-
+	private float currCountdownValue;
 	public int rank;
 	public string suit;
 	[SerializeField]
@@ -28,6 +28,7 @@ public class CardController : MonoBehaviour {
 	[SerializeField]
 	private SpriteRenderer bottomSuitSprite;
 
+	private AlertController alertController;
 	// Use this for initialization
 	void Start () {
 		if(!isTestCard){
@@ -56,6 +57,8 @@ public class CardController : MonoBehaviour {
 				upSuitSprite.color = Color.red;
 				bottomSuitSprite.color = Color.red;
 			}
+			//get CardController script reference
+			alertController = GameObject.Find("Canvas").GetComponent<AlertController>();
 		}
 	}
 
@@ -68,7 +71,6 @@ public class CardController : MonoBehaviour {
 			}
 		}
 	}
-
 	void showCard(){
 			// The step size is equal to speed times frame time.
 	    float step = speed * Time.deltaTime;
@@ -89,7 +91,19 @@ public class CardController : MonoBehaviour {
                 yield return null;
            }
   }
-
+	IEnumerator StartCountdown(float countdownValue = 3) {
+     currCountdownValue = countdownValue;
+     while (currCountdownValue > 0)
+     {
+         yield return new WaitForSeconds(1.0f);
+         currCountdownValue--;
+				 if(currCountdownValue == 0){
+					 print("Show Alert");
+					 alertController.showAlert("You got an " + rank + " of " + suit);
+				 }
+				 Debug.Log("Countdown: " + currCountdownValue);
+     }
+ }
 	Sprite getSprite(string name, Sprite[] sprites){
 		Sprite spriteToReturn = null;
 		for(int i=0;i<sprites.Length;i++){
@@ -105,5 +119,9 @@ public class CardController : MonoBehaviour {
 			return null;
 		}
 	}
+	void OnTriggerEnter(Collider col) {
+			print("Entro");
+			StartCoroutine(StartCountdown());
+  }
 
 }
