@@ -91,7 +91,7 @@ public class CardController : MonoBehaviour {
                 yield return null;
            }
   }
-	IEnumerator StartCountdown(float countdownValue = 3) {
+	IEnumerator StartCountdown(float countdownValue = 2) {
      currCountdownValue = countdownValue;
      while (currCountdownValue > 0)
      {
@@ -99,7 +99,7 @@ public class CardController : MonoBehaviour {
          currCountdownValue--;
 				 if(currCountdownValue == 0){
 					 print("Show Alert");
-					 alertController.showAlert("You got an " + rank + " of " + suit);
+					 alertController.showAlert(suit, rank);
 				 }
 				 Debug.Log("Countdown: " + currCountdownValue);
      }
