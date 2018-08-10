@@ -58,7 +58,7 @@ public class CardController : MonoBehaviour {
 				bottomSuitSprite.color = Color.red;
 			}
 			//get CardController script reference
-			alertController = GameObject.Find("Canvas").GetComponent<AlertController>();
+			alertController = GameObject.Find("AlertCanvas").GetComponent<AlertController>();
 		}
 	}
 
